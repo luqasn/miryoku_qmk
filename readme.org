@@ -14,4 +14,27 @@
 ** 
 
 [[https://github.com/manna-harbour][https://raw.githubusercontent.com/manna-harbour/miryoku/master/data/logos/manna-harbour-boa-32.png]]
- 
+
+
+Personal setup:
+#+begin_src sh
+brew install qmk
+qmk setup -b miryoku luqasn/miryoku_qmk
+#+end_src
+
+For hand-wired skeletyl
+#+begin_src sh
+qmk flash -c -kb skeletwol -bl uf2-split-left -km manna-harbour_miryoku -e MIRYOKU_ALPHAS=QWERTY -e MIRYOKU_NAV=VI
+qmk flash -c -kb skeletwol -bl uf2-split-right -km manna-harbour_miryoku -e MIRYOKU_ALPHAS=QWERTY -e MIRYOKU_NAV=VI
+#+end_src
+
+For crkbd:
+#+begin_src sh
+qmk flash -c -kb crkbd -bl dfu -km manna-harbour_miryoku -e MIRYOKU_ALPHAS=QWERTY -e MIRYOKU_NAV=VI
+qmk flash -c -kb crkbd -bl atmel-dfu -km manna-harbour_miryoku -e MIRYOKU_ALPHAS=QWERTY -e MIRYOKU_NAV=VI
+#+end_src
+
+For sweep:
+#+begin_src sh
+qmk flash -c -kb ferris/sweep -km manna-harbour_miryoku -bl avrdude -e MIRYOKU_ALPHAS=QWERTY -e MIRYOKU_NAV=VI
+#+end_src
