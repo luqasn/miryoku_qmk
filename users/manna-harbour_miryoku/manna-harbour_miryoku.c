@@ -6,6 +6,7 @@
 #include QMK_KEYBOARD_H
 
 #include "manna-harbour_miryoku.h"
+#include "split_util.h"
 
 
 // Additional Features double tap guard
@@ -97,6 +98,12 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
   }
 
   return state;
+}
+
+void housekeeping_task_user(void) {
+    if (!IS_LAYER_ON(U_TAP) && !is_transport_connected()) {
+        layer_move(U_TAP);
+    }
 }
 
 #endif
