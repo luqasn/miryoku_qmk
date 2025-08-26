@@ -103,6 +103,7 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
 void housekeeping_task_user(void) {
     if (!IS_LAYER_ON(U_TAP) && !is_transport_connected()) {
         layer_move(U_TAP);
+        combo_disable();
     }
 }
 
